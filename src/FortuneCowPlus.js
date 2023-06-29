@@ -1,8 +1,9 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Collection, Events, IntentsBitField } = require('discord.js');
-const TOKEN = process.env.TOKEN;
 require('dotenv').config();
+const TOKEN = process.env.TOKEN;
+
 
 const client = new Client({
     intents:[

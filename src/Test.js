@@ -22,3 +22,6 @@ fs.writeFile(filePath, imageBuffer, (err) => {
     console.log('Image saved successfully.');
   }
 });
+
+
+Canvas
