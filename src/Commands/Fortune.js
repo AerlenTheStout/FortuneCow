@@ -37,7 +37,8 @@ module.exports = {
         var witdth = 290;
         var height = 290;
 
-        await interaction.reply(createPngImageFromString(imageString, witdth, height));
+
+        await interaction.reply({attachment: [createPngImageFromString(imageString, witdth, height)]});
         
 
     },
