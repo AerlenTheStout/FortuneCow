@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require('discord.js');
+const { SlashCommandBuilder, Attachment } = require('discord.js');
 const execSync = require('child_process').execSync;
 const { createCanvas, registerFont } = require('canvas');
 const fs = require('fs');
@@ -38,7 +38,11 @@ module.exports = {
         var height = 290;
 
 
-        await interaction.reply({attachment: [createPngImageFromString(imageString, witdth, height)]});
+        await interaction.reply({
+            content: 'Here is your fortune!',
+            attachment: [createPngImageFromString(imageString, witdth, height)]
+            
+        });
         
 
     },
