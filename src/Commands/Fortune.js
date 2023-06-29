@@ -9,7 +9,7 @@ function createPngImageFromString(text) {
     // Create a canvas
     const canvas = createCanvas(300, 1000);
     const context = canvas.getContext('2d');
-    
+
     let width = context.measureText(text).width; // Actual width of the text in pixels
     let height = context.measureText(text).height; // Height of the text in pixels
     // Draw the text on the canvas
@@ -21,8 +21,8 @@ function createPngImageFromString(text) {
   
     // Convert the canvas to a PNG buffer
     const buffer = canvas.toBuffer('image/png');
-    //await fs.writeFile('fortune.png', buffer);
-    return buffer;
+    fs.writeFile('fortune.png', buffer);
+    
 }
 
 
@@ -38,8 +38,12 @@ module.exports = {
         console.log('Output was:\n', output);
 
         await interaction.reply({
-            content: 'Here is your fortune!',
-            attachment: [new createPngImageFromString(output)]
+            "content" : 'Here is your fortune!',
+            "attachment" : [{
+                "id": 0,
+                "description": "Image of a cute little cat",
+                "filename": "fortune.png"
+            }]
         });
         
 
