@@ -4,13 +4,14 @@ const { createCanvas, registerFont } = require('canvas');
 const fs = require('fs');
 
 function createPngImageFromString(text) {
+
+    let width = context.measureText(text).width; // Actual width of the text in pixels
+    let height = context.measureText(text).height; // Height of the text in pixels
     // Create a canvas
     const canvas = createCanvas(width, height);
     const context = canvas.getContext('2d');
   
     // Draw the text on the canvas
-    let width = context.measureText(text).width; // Actual width of the text in pixels
-    let height = context.measureText(text).height; // Height of the text in pixels
     context.fillStyle = '#ffffff'; // Set the fill color
     context.fillRect(0, 0, width, height); // Fill the entire canvas with the background color
     context.font = '20px Arial'; // Set the font properties
