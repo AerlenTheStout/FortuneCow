@@ -5,7 +5,6 @@ const fs = require('fs');
 
 function createPngImageFromString(text) {
 
-
     // Create a Temnp canvas
     const TEMPcanvas = createCanvas(500, 2000);
     const TEMPcontext = TEMPcanvas.getContext('2d');
@@ -58,7 +57,7 @@ module.exports = {
         
         await interaction.deferReply();
 
-        const output = execSync('ipconfig', { encoding: 'utf-8' });  // the default is 'buffer'
+        const output = execSync('fortune | cowsay', { encoding: 'utf-8' });  // the default is 'buffer'
         console.log('Output was:\n', output);
 
         const buffer = createPngImageFromString(output)
