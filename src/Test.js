@@ -1,27 +1,27 @@
-const execSync = require('child_process').execSync;
-// import { execSync } from 'child_process';  // replace ^ if using ES modules
-
-const output = execSync('dir', { encoding: 'utf-8' });  // the default is 'buffer'
-console.log('Output was:\n', output);
-
+const { createCanvas, registerFont } = require('canvas');
 const fs = require('fs');
+let text = 'This is a test of the emergency broadcast system. This is only a test. If this were a real emergency, you would be instructed where to go and what to do. This is only a test.';
 
-// Assuming 'imageString' contains the string representation of the image
-const imageString = "vguycvgygftycfhgvugytfycg /n gyhhbgvghugvyb jbhgvy /n yubhugvytgyugytfgyugvyt76y"
-// Convert the string into a Buffer
-const imageBuffer = Buffer.from(imageString, 'base64');
+const canvas = createCanvas(300, 1000);
+const context = canvas.getContext('2d');
 
-// Specify the file path and name where you want to save the image
-const filePath = 'image.png';
+let width = context.measureText(text).width; // Actual width of the text in pixels
+let height = context.measureText(text).height; // Height of the text in pixels
+// Draw the text on the canvas
+context.fillStyle = '#ffffff'; // Set the fill color
+context.fillRect(0, 0, width, height); // Fill the entire canvas with the background color
+context.font = '20px Arial'; // Set the font properties
+context.fillStyle = '#000000'; // Set the text color
+context.fillText(text, 10, 50); // Draw the text at coordinates (10, 50)
 
-// Write the image Buffer to the file
-fs.writeFile(filePath, imageBuffer, (err) => {
-  if (err) {
-    console.error('Error saving the image:', err);
-  } else {
-    console.log('Image saved successfully.');
+// Convert the canvas to a PNG buffer
+const buffer = canvas.toBuffer('image/png');
+fs.writeFile('fortune.png', buffer, (err) => {
+  if (err)
+    console.log(err);
+  else {
+    console.log("File written successfully\n");
+    console.log("The written has the following contents:");
+    console.log(fs.readFileSync("fortune.png", "utf8"));
   }
 });
-
-
-Canvas
