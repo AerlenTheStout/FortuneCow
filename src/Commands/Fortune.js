@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, Attachment } = require('discord.js');
+const { SlashCommandBuilder, Attachment, MessagePayload, AttachmentBuilder } = require('discord.js');
 const execSync = require('child_process').execSync;
 const { createCanvas, registerFont } = require('canvas');
 const fs = require('fs');
@@ -45,7 +45,7 @@ function createPngImageFromString(text) {
             console.log("File written successfully\n");
         }
     });
-    
+    return buffer;
 }
 
 
@@ -61,30 +61,13 @@ module.exports = {
         const output = execSync('ipconfig', { encoding: 'utf-8' });  // the default is 'buffer'
         console.log('Output was:\n', output);
 
-        createPngImageFromString(output)
+        const buffer = createPngImageFromString(output)
 
-       /* await interaction.reply({
-            "content" : 'Here is your fortune!',
-                "embeds": [{
-                  "title": "Hello, Embed!",
-                  "description": "This is an embedded message.",
-                  "thumbnail": {
-                    "url": "attachment://myfilename.png"
-                  },
-                  "image": {
-                    "url": "attachment://mygif.gif"
-                  }
-                }],
-                "message_reference": {
-                  "message_id": "233648473390448641"
-                },
-                "attachments": [{
-                    "id": 0,
-                    "description": "Image of a cute little cat",
-                    "filename": "fortune.png"
-                }]
-              });*/
-        
+        const attachment = new AttachmentBuilder(buffer, {name: 'fortune.png'});
 
+        await interaction.editReply({
+                files: [ attachment ]
+            }, 
+        )
     },
 };
