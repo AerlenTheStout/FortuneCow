@@ -19,7 +19,7 @@ function createPngImageFromString(text) {
     height = TEMPcontext.measureText(text).actualBoundingBoxDescent; // Height of the text in pixels
     //make some padding variables
     widthPadding = 10;
-    heightPadding = 30;
+    heightPadding = 20;
     canvasWidth = width + (2*widthPadding);
     canvasHeight = height + (2*heightPadding);
     //Main canvas
