@@ -56,7 +56,7 @@ module.exports = {
     async execute(interaction) {
         await interaction.deferReply();
         //get  fortune from linux command
-        const output = execSync('ipconfig', { encoding: 'utf-8' });  // the default is 'buffer'
+        const output = execSync('fortune | cowsay', { encoding: 'utf-8' });  // the default is 'buffer'
         console.log('Output was:\n', output);
         //get image buffer/ raw image data
         const buffer = createPngImageFromString(output)
