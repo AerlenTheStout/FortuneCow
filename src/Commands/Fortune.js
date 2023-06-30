@@ -11,7 +11,7 @@ function createPngImageFromString(text) {
     // Draw the text on the canvas
     TEMPcontext.fillStyle = '#ffffff'; // Set the fill color
     TEMPcontext.fillRect(0, 0, 500, 2000); // Fill the entire canvas with the background color
-    TEMPcontext.font = '12px UbuntuMono-R'; // Set the font properties
+    TEMPcontext.font = '12px DejaVu Sans Mono'; // Set the font properties
     TEMPcontext.fillStyle = '#000000'; // Set the text color
     TEMPcontext.fillText(text, 10, 50); // Draw the text at coordinates (10, 50)
     //get size of new canvas for acurate croping
@@ -28,7 +28,7 @@ function createPngImageFromString(text) {
 
     context.fillStyle = '#ffffff'; // Set the fill color
     context.fillRect(0, 0, canvasWidth, canvasHeight); // Fill the entire canvas with the background color
-    context.font = '12px UbuntuMono-R'; // Set the font properties
+    context.font = '12px DejaVu Sans Mono'; // Set the font properties
     context.fillStyle = '#000000'; // Set the text color
     context.fillText(text, widthPadding, heightPadding); // Draw the text at coordinates (10, 50)
 
