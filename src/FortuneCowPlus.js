@@ -4,7 +4,7 @@ const { Client, Collection, Events, IntentsBitField } = require('discord.js');
 
 var TOKENPath = path.join(__dirname, '../TOKEN.txt');
 console.log(TOKENPath);
-TOKEN = fs.readFileSync(TOKENPath, 'utf8', (err, data) => {
+var TOKEN = fs.readFileSync(TOKENPath, 'utf8', (err, data) => {
     if (err) {
       console.error(err);
       return;
