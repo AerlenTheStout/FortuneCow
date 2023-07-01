@@ -1,7 +1,7 @@
 const fs = require('node:fs');
-const path = require('node:path');
+const execSync = require('child_process').execSync;
 const { Client, Collection, Events, IntentsBitField } = require('discord.js');
-var absolutePath = path.resolve("./TOKEN.txt");
+var absolutePath = execSync('realpath ./TOKEN.txt', { encoding: 'utf-8' });
 console.log(absolutePath);
 TOKEN = fs.readFileSync(absolutePath, 'utf8', (err, data) => {
     if (err) {
