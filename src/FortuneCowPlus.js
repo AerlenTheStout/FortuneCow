@@ -1,17 +1,16 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Collection, Events, IntentsBitField } = require('discord.js');
-var path = require("path");
 var absolutePath = path.resolve("./TOKEN.txt");
-
-TOKEN = fs.readFile(absolutePath, 'utf8', (err, data) => {
+console.log(absolutePath);
+TOKEN = fs.readFileSync(absolutePath, 'utf8', (err, data) => {
     if (err) {
       console.error(err);
       return;
     }
     console.log(data);
 });
-
+console.log(TOKEN);
 const client = new Client({
     intents:[
         IntentsBitField.Flags.Guilds,
