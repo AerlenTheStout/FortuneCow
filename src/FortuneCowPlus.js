@@ -32,7 +32,7 @@ client.commands = new Collection();
 
 const commandsPath = path.join(__dirname, 'Commands');
 const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
-
+console.log("after client2");
 for (const file of commandFiles) {
 	const filePath = path.join(commandsPath, file);
 	const command = require(filePath);
@@ -44,8 +44,9 @@ for (const file of commandFiles) {
 	}
 }
 
-
+console.log("after client3");
 client.on(Events.InteractionCreate, async interaction => {
+    console.log("after client4");
 	if (!interaction.isChatInputCommand()) return;
 	
     const command = interaction.client.commands.get(interaction.commandName);
@@ -54,6 +55,7 @@ client.on(Events.InteractionCreate, async interaction => {
 
     try {
         await command.execute(interaction);
+        console.log("after client5");
     } catch (error) {
         console.error(error);
         if (interaction.replied || interaction.deferred) {
@@ -66,3 +68,4 @@ client.on(Events.InteractionCreate, async interaction => {
 });
 
 client.login(TOKEN);
+console.log("after client6");
