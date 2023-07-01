@@ -1,7 +1,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Collection, Events, IntentsBitField } = require('discord.js');
-const { TOKEN } = require('TOKEN.json');
+const { TOKEN } = require('../TOKEN.json');
 
 console.log(TOKEN);
 const client = new Client({
