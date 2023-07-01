@@ -1,9 +1,16 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Collection, Events, IntentsBitField } = require('discord.js');
-require('dotenv').config();
-const TOKEN = process.env.TOKEN;
+var path = require("path");
+var absolutePath = path.resolve("./TOKEN.txt");
 
+TOKEN = fs.readFile(absolutePath, 'utf8', (err, data) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    console.log(data);
+});
 
 const client = new Client({
     intents:[
