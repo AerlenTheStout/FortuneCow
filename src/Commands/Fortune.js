@@ -37,13 +37,6 @@ function createPngImageFromString(text) {
     // Convert the canvas to a PNG buffer
     const buffer = canvas.toBuffer('image/png');
     //save to pc for testing
-    fs.writeFile('fortune.png', buffer, (err) => {
-        if (err)
-            console.log(err);
-        else {
-            console.log("File written successfully\n");
-        }
-    });
     return buffer;
 }
 
