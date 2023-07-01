@@ -11,7 +11,7 @@ function createPngImageFromString(text) {
     // Draw the text on the canvas
     TEMPcontext.fillStyle = '#ffffff'; // Set the fill color
     TEMPcontext.fillRect(0, 0, 500, 2000); // Fill the entire canvas with the background color
-    TEMPcontext.font = '14px Arial'; // Set the font properties
+    TEMPcontext.font = '12px DejaVu Sans Mono'; // Set the font properties
     TEMPcontext.fillStyle = '#000000'; // Set the text color
     TEMPcontext.fillText(text, 10, 50); // Draw the text at coordinates (10, 50)
     //get size of new canvas for acurate croping
@@ -19,7 +19,7 @@ function createPngImageFromString(text) {
     height = TEMPcontext.measureText(text).actualBoundingBoxDescent; // Height of the text in pixels
     //make some padding variables
     widthPadding = 10;
-    heightPadding = 30;
+    heightPadding = 20;
     canvasWidth = width + (2*widthPadding);
     canvasHeight = height + (2*heightPadding);
     //Main canvas
@@ -28,7 +28,7 @@ function createPngImageFromString(text) {
 
     context.fillStyle = '#ffffff'; // Set the fill color
     context.fillRect(0, 0, canvasWidth, canvasHeight); // Fill the entire canvas with the background color
-    context.font = '14px Arial'; // Set the font properties
+    context.font = '12px DejaVu Sans Mono'; // Set the font properties
     context.fillStyle = '#000000'; // Set the text color
     context.fillText(text, widthPadding, heightPadding); // Draw the text at coordinates (10, 50)
 
@@ -56,7 +56,7 @@ module.exports = {
     async execute(interaction) {
         await interaction.deferReply();
         //get  fortune from linux command
-        const output = execSync('ipconfig', { encoding: 'utf-8' });  // the default is 'buffer'
+        const output = execSync('fortune | cowsay', { encoding: 'utf-8' });  // the default is 'buffer'
         console.log('Output was:\n', output);
         //get image buffer/ raw image data
         const buffer = createPngImageFromString(output)

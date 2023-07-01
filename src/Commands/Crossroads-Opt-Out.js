@@ -3,7 +3,7 @@ const execSync = require('child_process').execSync;
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('crossroads-opt-in')
+        .setName('crossroads-opt-out')
         .setDescription('Go home! (Opt out of getting crossroad fortunes)'),
 
     async execute(interaction) {

@@ -1,21 +1,28 @@
 {
   "name": "fortunecow",
   "version": "1.0.0",
-  "description": "",
-  "main": "src/deploy-commands.js",
+  "main": "src/FortuneCowPlus.js",
   "scripts": {
-    "test": "node src/deploy-commands.js"
+    "test": "node src/FortuneCowPlus.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "AerlenTheStout",
   "license": "ISC",
   "dependencies": {
     "canvas": "^2.11.2",
     "discord.js": "^14.11.0",
     "dotenv": "^16.1.4",
-    "ffmpeg": "^0.0.4",
     "fs": "^0.0.1-security",
-    "openai": "^3.2.1",
     "readline-sync": "^1.4.10"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AerlenTheStout/FortuneCow.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AerlenTheStout/FortuneCow/issues"
+  },
+  "homepage": "https://github.com/AerlenTheStout/FortuneCow#readme",
+  "description": ""
 }
