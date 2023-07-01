@@ -1,15 +1,17 @@
 const fs = require('node:fs');
-const execSync = require('child_process').execSync;
+const path = require('node:path');
 const { Client, Collection, Events, IntentsBitField } = require('discord.js');
-var absolutePath = "/home/jaxson/FortuneCow/TOKEN.txt"
-console.log(absolutePath);
-TOKEN = fs.readFileSync(absolutePath, 'utf8', (err, data) => {
+
+var TOKENPath = path.join(__dirname, '../TOKEN.txt');
+console.log(TOKENPath);
+TOKEN = fs.readFileSync(TOKENPath, 'utf8', (err, data) => {
     if (err) {
       console.error(err);
       return;
     }
     console.log(data);
 });
+
 console.log(TOKEN);
 const client = new Client({
     intents:[
