@@ -2,15 +2,7 @@ const { REST, Routes } = require('discord.js');
 const { clientId} = require('./config.json');
 const fs = require('node:fs');
 const path = require('node:path');
-var TOKENPath = path.join(__dirname, '../TOKEN.txt');
-console.log(TOKENPath);
-TOKEN = fs.readFileSync(TOKENPath, 'utf8', (err, data) => {
-    if (err) {
-      console.error(err);
-      return;
-    }
-    console.log(data);
-});
+const { TOKEN } = require('../TOKEN.json');
 
 
 const commands = [];
