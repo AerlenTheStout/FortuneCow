@@ -1,9 +1,9 @@
 {
   "name": "fortunecow",
   "version": "1.0.0",
-  "main": "src/deploy-commands.js",
+  "main": "src/FortuneCowPlus.js",
   "scripts": {
-    "test": "node src/deploy-commands.js"
+    "test": "node src/FortuneCowPlus.js"
   },
   "keywords": [],
   "author": "AerlenTheStout",
