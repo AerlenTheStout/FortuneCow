@@ -19,9 +19,10 @@ const client = new Client({
         IntentsBitField.Flags.GuildMessages,
         IntentsBitField.Flags.GuildMembers,
         IntentsBitField.Flags.MessageContent,
+        
     ]
 });
-
+console.log("after client");
 client.on('ready', (c) => {
     console.info(`Logged in as ${client.user.tag}!`);
 });
