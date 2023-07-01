@@ -67,6 +67,6 @@ client.on(Events.InteractionCreate, async interaction => {
 
 });
 
-await client.login(TOKEN);
+client.login(TOKEN);
 
 console.log("after client6");
