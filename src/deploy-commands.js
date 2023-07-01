@@ -2,8 +2,15 @@ const { REST, Routes } = require('discord.js');
 const { clientId} = require('./config.json');
 const fs = require('node:fs');
 const path = require('node:path');
-require('dotenv').config();
-const TOKEN = process.env.TOKEN;
+var TOKENPath = path.join(__dirname, '../TOKEN.txt');
+console.log(TOKENPath);
+TOKEN = fs.readFileSync(TOKENPath, 'utf8', (err, data) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    console.log(data);
+});
 
 
 const commands = [];
