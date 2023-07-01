@@ -1,17 +1,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Collection, Events, IntentsBitField } = require('discord.js');
-
-var TOKENPath = path.join(__dirname, '../TOKEN.txt');
-console.log(TOKENPath);
-var TOKENBUFFER = fs.readFileSync(TOKENPath, 'utf8', (err, data) => {
-    if (err) {
-      console.error(err);
-      return;
-    }
-    console.log(data);
-});
-var TOKEN = TOKENBUFFER.toString();
+const { TOKEN } = require('./TOKEN.json');
 
 console.log(TOKEN);
 const client = new Client({
