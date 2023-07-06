@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('discord.js');
 const execSync = require('child_process').execSync;
-const { opted } = require('Crossroads')
+const { opted } = require('../Crossroads.json')
 
 module.exports = {
     data: new SlashCommandBuilder()
