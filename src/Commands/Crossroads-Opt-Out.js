@@ -1,6 +1,9 @@
 const { SlashCommandBuilder } = require('discord.js');
-
-//make a indexedDB for crossroads opted users, and custom fortunes for the fortune command
+const fs = require("node:fs");
+const path = require("node:path");
+//get the json data and put into a variable
+const data = fs.readFileSync('./src/Crossroads.json')
+const jsonData = JSON.parse(data)
 
 
 module.exports = {
@@ -12,7 +15,15 @@ module.exports = {
         await interaction.reply('Opted Out! (Curretly under development aka no worky yet)');
         console.log('opted')
 
-        var userData = {"id": interaction.user.id, "username": interaction.user.username}
+        jsonData.opted.push({
+          "id": interaction.user.id, 
+          "username": interaction.user.username}
+          )
 
+        //write the new json data to the file
+        fs.writeFile('./src/Crossroads.json', JSON.stringify(jsonData), (err) => {
+          if (err) throw err;
+          console.log('Data written to file');
+        });
     },
 };

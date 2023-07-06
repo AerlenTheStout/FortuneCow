@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
-const execSync = require('child_process').execSync;
+const fs = require("node:fs");
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -9,10 +9,15 @@ module.exports = {
     async execute(interaction) {
         await interaction.reply('Opted In! (Curretly under development aka no worky yet)');
 
-        const output = execSync('dir', { encoding: 'utf-8' });  // the default is 'buffer'
-        console.log('Output was:\n', output);
-
-
-
+        jsonData.opted.push({
+            "id": interaction.user.id, 
+            "username": interaction.user.username}
+            )
+  
+          //write the new json data to the file
+          fs.writeFile('./src/Crossroads.json', JSON.stringify(jsonData), (err) => {
+            if (err) throw err;
+            console.log('Data written to file');
+          });
     },
 };
