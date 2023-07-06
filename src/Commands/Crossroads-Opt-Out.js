@@ -1,15 +1,7 @@
 const { SlashCommandBuilder } = require('discord.js');
 
 //make a indexedDB for crossroads opted users, and custom fortunes for the fortune command
-const request = indexedDB.open("FortuneCow");
-request.onerror = function (event) {
-  console.log("Database error: " + event.target.errorCode);
-};
 
-request.onsuccess = function (event) {
-  db = event.target.result;
-  console.log("Database opened successfully");
-};
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -22,14 +14,5 @@ module.exports = {
 
         var userData = {"id": interaction.user.id, "username": interaction.user.username}
 
-        const optedObjectStore = db
-          .transaction("opted", "readwrite")
-          .objectStore("opted");
-
-        transaction.oncomplete = function (event) {
-            interaction.editReply("Opted out!");
-        };
-
-        optedObjectStore.delete(userData["id"]);
     },
 };
