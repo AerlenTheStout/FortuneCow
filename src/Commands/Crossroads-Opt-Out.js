@@ -1,5 +1,6 @@
 const { SlashCommandBuilder } = require('discord.js');
 const execSync = require('child_process').execSync;
+const { opted } = require('Crossroads')
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -9,9 +10,7 @@ module.exports = {
     async execute(interaction) {
         await interaction.reply('Opted Out! (Curretly under development aka no worky yet)');
 
-        const output = execSync('dir', { encoding: 'utf-8' });  // the default is 'buffer'
-        console.log('Output was:\n', output);
-
+        console.log(opted)
 
 
     },
