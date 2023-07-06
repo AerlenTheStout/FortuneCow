@@ -2,6 +2,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 const { Client, Collection, Events, IntentsBitField } = require("discord.js");
 const { TOKEN } = require("../TOKEN.json");
+const { create } = require("node:domain");
 
 const client = new Client({
   intents: [
@@ -36,6 +37,38 @@ for (const file of commandFiles) {
   }
 }
 
+//create database with onupgrade function
+
+const request = indexedDB.open("FortuneCow");
+request.onerror = function (event) {
+  console.log("Database error: " + event.target.errorCode);
+};
+
+request.onsuccess = function (event) {
+  db = event.target.result;
+  console.log("Database opened successfully");
+};
+
+request.onupgradeneeded = function (event) {
+    const db = event.target.result;
+
+    const optedObjectStore = db.createObjectStore("opted", {keyPath: "id"});
+    const CustomFortunesObjectStore = db.createObjectStore("opted", { autoIncrement: true });
+
+    optedObjectStore.createIndex("opted", "opted", { unique: true });
+
+    CustomFortunesObjectStore.transaction.oncomplete = (event) => {
+      console.log("CustomFortunes Database upgraded successfully");
+    };
+
+    optedObjectStore.transaction.oncomplete = (event) => {
+        console.log("opted Database upgraded successfully");
+      };
+};
+
+
+
+
 client.on(Events.InteractionCreate, async (interaction) => {
   if (!interaction.isChatInputCommand()) return;
 
@@ -63,5 +96,6 @@ client.on(Events.InteractionCreate, async (interaction) => {
     }
   }
 });
+
 
 client.login(TOKEN);
