@@ -12,6 +12,7 @@ module.exports = {
     .setName('crossroads-opt-in')
     .setDescription('Start walking around the crossroads! (Opt into getting crossroad fortunes)'),
 
+    
   async execute(interaction) {
     await interaction.deferReply();
 
@@ -19,6 +20,8 @@ module.exports = {
       var includes = true
       var spot = jsonData.opted.findIndex(e => e.id === interaction.user.id)
       
+    } else {
+      var includes = false
     }
     console.log(includes)
     //check if the user is already opted in
