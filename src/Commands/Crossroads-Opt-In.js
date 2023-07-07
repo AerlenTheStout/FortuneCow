@@ -2,9 +2,8 @@ const { SlashCommandBuilder } = require('discord.js');
 const fs = require("node:fs");
 const path = require("node:path");
 //get the json data and put into a variable
-const relativePath = '../Crossroads.json'
-const filePath = path.resolve(relativePath)
-const data = fs.readFileSync(filePath)
+
+const data = fs.readFileSync('../Crossroads.json')
 const jsonData = JSON.parse(data)
 
 module.exports = {
