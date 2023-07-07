@@ -4,8 +4,7 @@ const path = require("node:path");
 //get the json data and put into a variable
 
 const jsonPath = path.join(__dirname, "../Crossroads.json")
-const data = fs.readFileSync(jsonPath)
-const jsonData = JSON.parse(data)
+
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -15,6 +14,8 @@ module.exports = {
     
   async execute(interaction) {
     await interaction.deferReply();
+    let data = fs.readFileSync(jsonPath)
+    let jsonData = JSON.parse(data)
 
     for (let i = 0; i < jsonData.opted.length; i++) {
       if (jsonData.opted[i] === null) {
@@ -24,7 +25,7 @@ module.exports = {
 
     if (jsonData.opted.some(e => e.id === interaction.user.id)) {
       var includes = true
-      var spot = jsonData.opted.findIndex(e => e.id === interaction.user.id)
+      var spot = jsonData.opted.indexOf(interaction.user.id)
     } else {
       var includes = false
     }
