@@ -16,14 +16,15 @@ module.exports = {
     await interaction.deferReply();
 
     for (let i = 0; i < jsonData.opted.length; i++) {
-      if (jsonData.opted[i].hasOwnProperty("id") && jsonData.opted[i].hasOwnProperty("username")) {
+      
         if (jsonData.opted[i].id === interaction.user.id && jsonData.opted[i].username === interaction.user.username) {
           spot = i
           includes = true
         } else
           includes = false
-      }
+      
     }
+
     if (includes = false) {
       interaction.editReply("You aren't opted in!")
       return
