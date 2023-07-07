@@ -16,6 +16,7 @@ module.exports = {
         await interaction.deferReply();
         console.log('opted')
         //delete json data for the user
+        console.log(jsonData.opted.length)
         for (let i = 0; i < jsonData.opted.length; i++) {
             if (jsonData.opted[i].id === interaction.user.id && jsonData.opted[i].username === interaction.user.username) {
               delete jsonData.opted[i]
