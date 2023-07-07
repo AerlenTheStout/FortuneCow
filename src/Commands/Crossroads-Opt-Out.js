@@ -13,7 +13,7 @@ module.exports = {
         .setDescription('Go home! (Opt out of getting crossroad fortunes)'),
 
     async execute(interaction) {
-        await interaction.defferReply();
+        await interaction.deferReply();
         console.log('opted')
         //delete json data for the user
         for (let i = 0; i < jsonData.opted.length; i++) {
