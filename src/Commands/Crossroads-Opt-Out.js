@@ -37,7 +37,3 @@ module.exports = {
     }
   }
 }
-        //write the new json data to the file
-        
-    },
-};
