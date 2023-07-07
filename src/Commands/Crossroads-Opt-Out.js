@@ -25,7 +25,7 @@ module.exports = {
         //write the new json data to the file
         fs.writeFile(jsonPath, JSON.stringify(jsonData), (err) => {
           if (err) throw err;
-          interaction.editReply('Data written to file');
+          interaction.editReply('Opted Out! Data removed from file');
         });
     },
 };
