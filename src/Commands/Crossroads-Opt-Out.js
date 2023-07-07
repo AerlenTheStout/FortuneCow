@@ -2,8 +2,8 @@ const { SlashCommandBuilder } = require('discord.js');
 const fs = require("node:fs");
 const path = require("node:path");
 //get the json data and put into a variable
-const filePath = path.join(__dirname, "../Crossroads.json")
-const data = fs.readFileSync(filePath)
+const jsonPath = path.join(__dirname, "../Crossroads.json")
+const data = fs.readFileSync(jsonPath)
 const jsonData = JSON.parse(data)
 
 
@@ -22,7 +22,7 @@ module.exports = {
           )
 
         //write the new json data to the file
-        fs.writeFile('./src/Crossroads.json', JSON.stringify(jsonData), (err) => {
+        fs.writeFile(jsonPath, JSON.stringify(jsonData), (err) => {
           if (err) throw err;
           console.log('Data written to file');
         });
