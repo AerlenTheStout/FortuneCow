@@ -14,10 +14,19 @@ module.exports = {
 
   async execute(interaction) {
     await interaction.deferReply();
+
+    for (let i = 0; i < jsonData.opted.length; i++) {
+      if (jsonData.opted[i].id === interaction.user.id && jsonData.opted[i].username === interaction.user.username) {
+        spot = i
+        includes = true
+      } else
+        includes = false
+    }
     //check if the user is already opted in
     //if they are, do nothing
     //if they are not, add them to the json file
-    if (jsonData.opted.includes(interaction.user.id)) {
+
+    if (includes = true) {
       interaction.editReply('You are already opted in!')
       return
     } else {
