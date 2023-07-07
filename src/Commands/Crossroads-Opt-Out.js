@@ -16,8 +16,8 @@ module.exports = {
     await interaction.deferReply();
 
     if (jsonData.opted.some(e => e.id === interaction.user.id)) {
-      includes = true
-      spot = jsonData.opted.findIndex(e => e.id === interaction.user.id)
+      var includes = true
+      var spot = jsonData.opted.findIndex(e => e.id === interaction.user.id)
     }
 
     if (includes = false) {

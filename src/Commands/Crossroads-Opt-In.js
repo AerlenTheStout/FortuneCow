@@ -16,10 +16,11 @@ module.exports = {
     await interaction.deferReply();
 
     if (jsonData.opted.some(e => e.id === interaction.user.id)) {
-      includes = true
-      spot = jsonData.opted.findIndex(e => e.id === interaction.user.id)
+      var includes = true
+      var spot = jsonData.opted.findIndex(e => e.id === interaction.user.id)
+      
     }
-    
+    console.log(includes)
     //check if the user is already opted in
     //if they are, do nothing
     //if they are not, add them to the json file
