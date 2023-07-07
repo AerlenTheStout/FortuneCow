@@ -19,8 +19,8 @@ module.exports = {
 
     for (let i = 0; i < jsonData.opted.length; i++) {
       if (jsonData.opted[i] === null) {
-        delete jsonData.opted[i]
-        fs.writeFileSync(jsonPath, JSON.stringify(jsonData), (err) => {
+        jsonData.opted.splice(i,1)
+        fs.writeFileSync(jsonPath, JSON.stringify(jsonData,null,1), (err) => {
           if (err) throw err;
         });
       }
@@ -51,7 +51,7 @@ module.exports = {
         "username": interaction.user.username
       })
       //write the new json data to the file
-      fs.writeFileSync(jsonPath, JSON.stringify(jsonData), (err) => {
+      fs.writeFileSync(jsonPath, JSON.stringify(jsonData,null,1), (err) => {
         if (err) throw err;
       });
       interaction.editReply('Opted In!! (Data written to file)');
