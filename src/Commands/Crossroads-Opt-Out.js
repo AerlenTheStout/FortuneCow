@@ -38,7 +38,7 @@ module.exports = {
     console.log(includes)
 
     if (includes == false) {
-      interaction.editReply("You aren't opted in!")
+      interaction.editReply("You aren't opted in!",jsonData)
       return
     } 
 

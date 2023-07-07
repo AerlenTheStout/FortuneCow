@@ -41,7 +41,7 @@ module.exports = {
     //if they are not, add them to the json file
 
     if (includes == true) {
-      interaction.editReply('You are already opted in!')
+      interaction.editReply('You are already opted in!',jsonData)
       return
     }
 
