@@ -15,18 +15,10 @@ module.exports = {
   async execute(interaction) {
     await interaction.deferReply();
 
-    try {
-      for (let i = 0; i < jsonData.opted.length; i++) {
-          if (jsonData.opted[i].id === interaction.user.id && jsonData.opted[i].username === interaction.user.username) {
-            spot = i
-            includes = true
-            break;
-          } 
-      }
-    }catch (error) {
-      console.error(error);
-      includes = false
-      }
+    if (jsonData.opted.some(e => e.id === interaction.user.id)) {
+      includes = true
+      spot = jsonData.opted.findIndex(e => e.id === interaction.user.id)
+    }
 
     if (includes = false) {
       interaction.editReply("You aren't opted in!")
