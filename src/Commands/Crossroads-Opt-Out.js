@@ -23,13 +23,15 @@ module.exports = {
     if (includes = false) {
       interaction.editReply("You aren't opted in!")
       return
-    } else {
+    } 
+
+    if(includes = true) {
       //delete json data for the user
       delete jsonData.opted[spot]
       fs.writeFile(jsonPath, JSON.stringify(jsonData), (err) => {
         if (err) throw err;
-        interaction.editReply('Opted Out! Data removed from file');
       });
+      interaction.editReply('Opted Out! Data removed from file');
 
     }
   }

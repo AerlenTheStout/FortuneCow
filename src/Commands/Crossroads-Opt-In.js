@@ -27,7 +27,9 @@ module.exports = {
     if (includes = true) {
       interaction.editReply('You are already opted in!')
       return
-    } else {
+    }
+
+    if (includes = false) {
       jsonData.opted.push({
         "id": interaction.user.id,
         "username": interaction.user.username
@@ -35,8 +37,8 @@ module.exports = {
       //write the new json data to the file
       fs.writeFile(jsonPath, JSON.stringify(jsonData), (err) => {
         if (err) throw err;
-        interaction.editReply('Opted In!! (Data written to file)');
       });
+      interaction.editReply('Opted In!! (Data written to file)');
     }
   },
 };
