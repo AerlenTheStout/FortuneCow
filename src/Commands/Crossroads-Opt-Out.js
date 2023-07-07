@@ -23,7 +23,7 @@ module.exports = {
           return
         } else {
           //2 cuz thats the size of it empty
-          for (let i = 1; i < jsonData.opted.length; i++) {
+          for (let i = 0; i < jsonData.opted.length; i++) {
               if (jsonData.opted[i].id === interaction.user.id && jsonData.opted[i].username === interaction.user.username) {
                 delete jsonData.opted[i]
               }
