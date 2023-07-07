@@ -21,13 +21,13 @@ module.exports = {
     } else {
       var includes = false
     }
-    
-    if (includes = false) {
+
+    if (includes == false) {
       interaction.editReply("You aren't opted in!")
       return
     } 
 
-    if(includes = true) {
+    if(includes == true) {
       //delete json data for the user
       delete jsonData.opted[spot]
       fs.writeFile(jsonPath, JSON.stringify(jsonData), (err) => {

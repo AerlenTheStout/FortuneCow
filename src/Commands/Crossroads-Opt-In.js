@@ -28,12 +28,12 @@ module.exports = {
     //if they are, do nothing
     //if they are not, add them to the json file
 
-    if (includes = true) {
+    if (includes == true) {
       interaction.editReply('You are already opted in!')
       return
     }
 
-    if (includes = false) {
+    if (includes == false) {
       jsonData.opted.push({
         "id": interaction.user.id,
         "username": interaction.user.username
