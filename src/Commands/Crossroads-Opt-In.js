@@ -5,8 +5,8 @@ const path = require("node:path");
 //const filePath = path.resolve(__dirname, '../Crossroads.json')
 //console.log(filePath)
 //const data = fs.readFileSync(filePath)
-const jsonPath = path.join(__dirname, "../Crossroads.json")
-const data = fs.readFileSync(jsonPath)
+//const jsonPath = path.join(__dirname, "../Crossroads.json")
+const data = fs.readFileSync('../Crossroads.json')
 const jsonData = JSON.parse(data)
 
 module.exports = {
