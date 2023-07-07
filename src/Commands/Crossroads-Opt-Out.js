@@ -16,7 +16,7 @@ module.exports = {
     await interaction.deferReply();
 
     for (let i = 0; i < jsonData.opted.length; i++) {
-      if (jsonData.opted.containsKey(id) && jsonData.opted.containsKey(username)) {
+      if (jsonData.opted.containsKey("id") && jsonData.opted.containsKey("username")) {
         if (jsonData.opted[i].id === interaction.user.id && jsonData.opted[i].username === interaction.user.username) {
           spot = i
           includes = true
