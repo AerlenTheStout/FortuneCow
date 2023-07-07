@@ -54,9 +54,8 @@ module.exports = {
       fs.writeFileSync(jsonPath, JSON.stringify(jsonData,null,1), (err) => {
         if (err) throw err;
       });
-      interaction.editReply('Opted In!! (Data written to file)');
+      interaction.editReply('Opted In!! (Data written to file)',jsonData);
     }
-    interaction.followUp(jsonData);
   },
 };
 
