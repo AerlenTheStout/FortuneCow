@@ -51,5 +51,6 @@ module.exports = {
       interaction.editReply('Opted Out! Data removed from file');
 
     }
+    interaction.followUp(jsonData);
   }
 }

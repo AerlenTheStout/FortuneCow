@@ -56,6 +56,7 @@ module.exports = {
       });
       interaction.editReply('Opted In!! (Data written to file)');
     }
+    interaction.followUp(jsonData);
   },
 };
 
