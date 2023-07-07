@@ -4,6 +4,7 @@ const path = require("node:path");
 //get the json data and put into a variable
 
 const filePath = path.join(__dirname, "../Crossroads.json")
+console.log(filePath)
 const data = fs.readFileSync(filePath)
 const jsonData = JSON.parse(data)
 
