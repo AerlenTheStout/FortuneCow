@@ -19,7 +19,6 @@ module.exports = {
     if (jsonData.opted.some(e => e.id === interaction.user.id)) {
       var includes = true
       var spot = jsonData.opted.findIndex(e => e.id === interaction.user.id)
-      
     } else {
       var includes = false
     }

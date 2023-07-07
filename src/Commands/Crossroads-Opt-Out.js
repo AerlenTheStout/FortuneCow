@@ -21,6 +21,8 @@ module.exports = {
     } else {
       var includes = false
     }
+    
+    console.log(includes)
 
     if (includes == false) {
       interaction.editReply("You aren't opted in!")
