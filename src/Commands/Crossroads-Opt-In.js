@@ -13,7 +13,7 @@ module.exports = {
     .setDescription('Start walking around the crossroads! (Opt into getting crossroad fortunes)'),
 
   async execute(interaction) {
-    await interaction.reply('Opted In! (Curretly under development aka no worky yet)');
+    await interaction.defferReply();
     //check if the user is already opted in
     //if they are, do nothing
     //if they are not, add them to the json file

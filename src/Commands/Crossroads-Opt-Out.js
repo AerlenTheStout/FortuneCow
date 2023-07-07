@@ -13,13 +13,14 @@ module.exports = {
         .setDescription('Go home! (Opt out of getting crossroad fortunes)'),
 
     async execute(interaction) {
-        await interaction.reply('Opted Out! (Curretly under development aka no worky yet)');
+        await interaction.defferReply();
         console.log('opted')
-
-        jsonData.opted.push({
-          "id": interaction.user.id, 
-          "username": interaction.user.username}
-          )
+        //delete json data for the user
+        for (let i = 0; i < jsonData.opted.length; i++) {
+            if (jsonData.opted[i].id === interaction.user.id && jsonData.opted[i].username === interaction.user.username) {
+              delete jsonData.opted[i]
+            }
+        }
 
         //write the new json data to the file
         fs.writeFile(jsonPath, JSON.stringify(jsonData), (err) => {
