@@ -19,8 +19,14 @@ module.exports = {
     for (let i = 0; i < jsonData.opted.length; i++) {
       if (jsonData.opted[i] === null) {
         delete jsonData.opted[i]
+        fs.writeFileSync(jsonPath, JSON.stringify(jsonData), (err) => {
+          if (err) throw err;
+        });
       }
     }
+
+    data = fs.readFileSync(jsonPath)
+    jsonData = JSON.parse(data)
 
     if (jsonData.opted.some(e => e.id === interaction.user.id)) {
       var includes = true
@@ -39,7 +45,7 @@ module.exports = {
     if(includes == true) {
       //delete json data for the user
       delete jsonData.opted[spot]
-      fs.writeFile(jsonPath, JSON.stringify(jsonData), (err) => {
+      fs.writeFileSync(jsonPath, JSON.stringify(jsonData), (err) => {
         if (err) throw err;
       });
       interaction.editReply('Opted Out! Data removed from file');
