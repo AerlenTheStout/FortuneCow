@@ -38,7 +38,7 @@ module.exports = {
     console.log(includes)
 
     if (includes == false) {
-      interaction.editReply("You aren't opted in!",jsonData)
+      interaction.editReply("You aren't opted in!",jsonData.opted)
       return
     } 
 
@@ -48,7 +48,7 @@ module.exports = {
       fs.writeFileSync(jsonPath, JSON.stringify(jsonData,null,1), (err) => {
         if (err) throw err;
       });
-      interaction.editReply('Opted Out! Data removed from file', jsonData);
+      interaction.editReply('Opted Out! Data removed from file', jsonData.opted);
 
     }
   }

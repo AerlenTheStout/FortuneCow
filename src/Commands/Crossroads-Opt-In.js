@@ -41,7 +41,7 @@ module.exports = {
     //if they are not, add them to the json file
 
     if (includes == true) {
-      interaction.editReply('You are already opted in!',jsonData)
+      interaction.editReply('You are already opted in!',jsonData.opted)
       return
     }
 
@@ -54,7 +54,7 @@ module.exports = {
       fs.writeFileSync(jsonPath, JSON.stringify(jsonData,null,1), (err) => {
         if (err) throw err;
       });
-      interaction.editReply('Opted In!! (Data written to file)',jsonData);
+      interaction.editReply('Opted In!! (Data written to file)',jsonData.opted);
     }
   },
 };
