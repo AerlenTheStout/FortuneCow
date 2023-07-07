@@ -29,7 +29,7 @@ module.exports = {
       return
     } else {
       //delete json data for the user
-      delete jsonData.opted[i]
+      delete jsonData.opted[spot]
       fs.writeFile(jsonPath, JSON.stringify(jsonData), (err) => {
         if (err) throw err;
         interaction.editReply('Opted Out! Data removed from file');
